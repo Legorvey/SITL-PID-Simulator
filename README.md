@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Industrial-Grade PID Control Telemetry
 
-## Getting Started
+A high-performance Software-in-the-Loop (SITL) platform engineered for dynamic plant response analysis, real-time actuator saturation testing, and heuristic tuning optimization.
 
-First, run the development server:
+## Core Architecture
+This simulator utilizes discrete calculus to compute physical momentum and actuator limits in real-time, moving beyond static array approximations.
+
+* **Physics Engine:** Euler Integration operating at 100Hz.
+* **Control Logic:** Proportional-Integral-Derivative (PID) with anti-windup clamping.
+* **Telemetry Loop:** Continuous infinite-loop rendering (`requestAnimationFrame`) for live momentum manipulation without timeline resets.
+
+## Technical Capabilities
+1. **Dynamic Plant Selection:** Test configurations on abstract models including BLDC Motors and Industrial Heaters.
+2. **Signal Tracking:** Evaluate transient responses using Unit Step, Square Wave, and Sine Wave reference signals at variable frequencies.
+3. **Environmental Stress Testing:** 
+   * Inject realistic sensor noise to test derivative filter limits.
+   * Trigger external load disturbances (-150.0 amplitude) to evaluate the Integral component's rejection capability.
+4. **Advanced Analytics:** Computes Maximum Overshoot, Steady-State Error (SSE), Rise Time (10-90%), and Settling Time (2% tolerance) on static step responses.
+
+## Tech Stack
+* **Framework:** Next.js (App Router)
+* **Styling:** Tailwind CSS (Glassmorphism & SaaS-grade UI)
+* **Visualization:** Plotly.js (Scientific graphing)
+* **Deployment:** Vercel
+
+## Local Installation
+
+Ensure you have Node.js installed. Clone the repository and install the dependencies:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+git clone [https://github.com/Legorvey/SITL-PID-Simulator.git](https://github.com/Legorvey/SITL-PID-Simulator.git)
+cd SITL-PID-Simulator
+npm install
