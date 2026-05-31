@@ -19,7 +19,7 @@ This simulator utilizes discrete calculus to compute physical momentum and actua
 
 ## Tech Stack
 * **Framework:** Next.js (App Router)
-* **Styling:** Tailwind CSS (Glassmorphism & SaaS-grade UI)
+* **Styling:** Tailwind CSS (Glassmorphism)
 * **Visualization:** Plotly.js (Scientific graphing)
 * **Deployment:** Vercel
 
